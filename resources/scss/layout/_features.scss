@@ -1,0 +1,60 @@
+@import "../Base/variables";
+
+.section-features {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($Light-green, 0.8),
+      rgba($Dark-green, 0.8)
+    ),
+    url(../img/nat-4.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 20rem 0;
+  margin-top: -10rem;
+  transform: skewY(-7deg);
+}
+
+.features {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+  transform: skewY(7deg);
+
+  & > * {
+    //margin: 2rem 2rem;
+    width: 20%;
+    @include respond(tab-port) {
+      flex: 0 0 45%;
+      margin-top: 2rem;
+    }
+  }
+
+  &__box {
+    font-size: 1.5rem;
+    background-color: #f7f7f7;
+    padding: 3rem 2rem;
+    transition: all 0.2s;
+    border-radius: 3px;
+    @include respond(tab-land) {
+      padding: 3rem 0.5rem;
+    }
+
+    &__icon {
+      font-size: 6rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      background-image: linear-gradient(to right, $Light-green, $Dark-green);
+      color: transparent;
+      -webkit-background-clip: text;
+    }
+
+    &__text {
+      text-align: center;
+    }
+
+    &:hover {
+      transform: translateY(-1.5rem) scale(1.05);
+    }
+  }
+}

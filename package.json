@@ -1,0 +1,26 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "A Advanced CSS project",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass resources/scss/main.scss resources/css/style.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "node-sass resources/scss/main.scss resources/css/style.compile.css",
+    "concat:css": "concat -o resources/css/style.concat.css resources/css/style.compile.css vendors/css/ionicons.css",
+    "prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" resources/css/style.concat.css -o resources/css/style.prefix.css",
+    "compress:css": "node-sass resources/css/style.prefix.css resources/css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
+  },
+  "author": "Akshat trivedi",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "concat": "^1.0.3",
+    "node-sass": "^4.13.1",
+    "npm": "^6.14.3",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.0"
+  }
+}

@@ -1,0 +1,75 @@
+.floating-images {
+  position: relative;
+  width: 100%;
+  height: 30rem;
+
+  & > *:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    outline: 1rem solid $Medium-green;
+    outline-offset: 1rem;
+    z-index: 40;
+
+    @include respond(tab-port) {
+      transform: scale(1);
+      outline: none;
+    }
+  }
+
+  & > * {
+    transition: all 0.2s;
+  }
+
+  &:hover &__image:not(:hover) {
+    transform: scale(0.95);
+    @include respond(tab-port) {
+      transform: scale(1);
+      outline: none;
+    }
+  }
+
+  &__image-1 {
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    z-index: 10;
+    width: 50%;
+    height: auto;
+    transition: all 0.2s;
+    @include respond(tab-port) {
+      width: 40%;
+      top: 1rem;
+      left: 2rem;
+    }
+  }
+
+  &__image-2 {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    width: 50%;
+    z-index: 20;
+
+    @include respond(tab-port) {
+      width: 40%;
+      top: 1rem;
+    }
+  }
+
+  &__image-3 {
+    position: absolute;
+    bottom: 1rem;
+    right: 30%;
+    width: 50%;
+    z-index: 30;
+
+    @include respond(tab-land) {
+      bottom: 2.5rem;
+    }
+
+    @include respond(tab-port) {
+      width: 40%;
+      top: 0;
+    }
+  }
+}

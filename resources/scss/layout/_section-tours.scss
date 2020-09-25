@@ -1,0 +1,200 @@
+.section-tours {
+  background-color: #f7f7ff;
+  margin-top: -10rem;
+  padding-top: 25rem;
+  padding-bottom: 10rem;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+
+  @include respond(tab-port) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & > * {
+    width: 25%;
+    @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+      margin-bottom: 33rem;
+    }
+
+    @include respond(tab-port) {
+      width: 80%;
+    }
+  }
+}
+
+.card {
+  perspective: 150rem;
+  position: relative;
+  height: 52rem;
+  &__side {
+    background-color: #fff;
+    box-shadow: 0.5rem 1rem 3rem rgba(#000, 0.2);
+    height: 52rem;
+    overflow: hidden;
+    transition: all 0.7s ease;
+    width: 100%;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &--back {
+      transform: rotateY(180deg);
+
+      @media only screen and (max-width: 56.25em),
+        only screen and (hover: none) {
+        transform: rotateY(0deg);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        top: 91%;
+        height: 30rem;
+        left: 0;
+      }
+      &-1 {
+        background-image: linear-gradient(to right bottom, #ffb900, #ff7730);
+      }
+      &-2 {
+        background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
+      }
+      &-3 {
+        background-image: linear-gradient(to right bottom, #2998ff, #5643fa);
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+    cursor: pointer;
+    @include respond(tab-port) {
+      transform: rotateY(0deg);
+    }
+  }
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+    @include respond(tab-port) {
+      transform: rotateY(0deg);
+    }
+    cursor: pointer;
+  }
+
+  &__picture {
+    background-size: cover;
+    background-position: center;
+    height: 23rem;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, #ffb900, #ff7730),
+        url(../img/nat-5.jpg);
+    }
+
+    &--2 {
+      background-image: linear-gradient(to right bottom, #7ed56f, #28b485),
+        url(../img/nat-6.jpg);
+    }
+
+    &--3 {
+      background-image: linear-gradient(to right bottom, #2998ff, #5643fa),
+        url(../img/nat-7.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 3rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: white;
+    text-align: right;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+
+    @include respond(tab-port) {
+      font-size: 2.5rem;
+    }
+
+    &-span {
+      padding: 1rem 1.5rem;
+      -webkit-box-decoration-break: clone;
+
+      &--1 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba(255, 185, 0, 0.85),
+          rgba(255, 119, 48, 0.85)
+        );
+      }
+      &--2 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba(126, 213, 111, 0.85),
+          rgba(40, 180, 133, 0.85)
+        );
+      }
+
+      &--3 {
+        background-image: linear-gradient(
+          to right bottom,
+          rgba(41, 152, 255, 0.85),
+          rgba(86, 67, 250, 0.85)
+        );
+      }
+    }
+  }
+
+  &__details {
+    padding: 3rem;
+    ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto;
+      li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem;
+        color: #777;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid #eee;
+        }
+      }
+    }
+  }
+
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+
+    @include respond(tab-port) {
+      top: 55%;
+    }
+  }
+
+  &__price-box {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 8rem;
+    @include respond(tab-port) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100;
+  }
+}

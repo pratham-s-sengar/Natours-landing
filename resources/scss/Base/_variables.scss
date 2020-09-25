@@ -1,0 +1,16 @@
+//colors
+$Light-green: #7ed56f;
+$Medium-green: #55c57a;
+$Dark-green: #28b485;
+$text-gray: #777;
+$color-gray-light : #f7f7f7;
+$right-gutter: 2rem;
+$bottom-gutter: 3rem;
+
+@mixin clearfix {
+    &::after{
+        display: block;
+        content: "";
+        clear:both;  
+    }
+}
